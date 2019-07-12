@@ -1,11 +1,13 @@
 const express = require('express')
 const server = express()
+const bodyParser = require('body-parser')
+const cors = require('cors')
 
+server.use(express.static('public'))
+server.use(cors())
 
-
-app.post('/voluntarias', bodyParser.json(), (req, res) => {
+server.post('/voluntarias', bodyParser.json(), (req, res) => {
     res.send(voluntarias.add(req.token, req.body))
-
 })
 
 server.listen(5001, () => {
